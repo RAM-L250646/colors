@@ -4,7 +4,8 @@
     <meta charset="utf-8"/>
     <style>
       h1 {
-        align-self: center;
+        justify-self: center;
+        padding: 10%;
       }
     </style>
     <title>COLORS!!!</title>
@@ -13,20 +14,29 @@
     <h1 id="color"></h1>
   </body>
 
-  <!-- NEW COLOR!! -->
+  <!-- all the fire code -->
   <script>
+    // initialize variables
     const b = document.getElementById("b");
     const text = document.getElementById("color");
-    let a;
+    let intcolor, hexcolor;
+    intcolor = 0; // set starting color to black
+    
+    // key detection
     document.addEventListener("keydown", (e) => {
         if (e.key == " " && !e.repeat) {
-            a = Math.round(Math.random()*0xffffff);
-            a = "#"+a.toString(16).padStart(6, '0');
+            intcolor = Math.round(Math.random()*0xffffff);
         }
     })
+
+    // each frame
     tick = setInterval(() => {
-        b.style.background = a;
-        text.innerHTML = a;
+        hexcolor = "#"+intcolor.toString(16).padStart(6, '0'); // int -> hex
+      
+        b.style.background = hexcolor;
+        text.innerHTML = hexcolor;
+        text.style.color = intcolor > 0x888888 ? "#ffffff" : "#000000"
     })
   </script>
+  <!-- end of fire cold -->
 </html>
