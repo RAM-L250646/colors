@@ -32,9 +32,9 @@
     // each frame
     tick = setInterval(() => {
         hexcolor = "#"+intcolor.toString(16).padStart(6, '0'); // int -> hex
-        red = (intcolor ^ 0xff0000) >> 4;
-        green = (intcolor ^ 0x00ff00) >> 2;
-        blue = (intcolor ^ 0x0000ff);
+        red = (intcolor & 0xff0000) >> 4;
+        green = (intcolor & 0x00ff00) >> 2;
+        blue = (intcolor & 0x0000ff);
 
         b.style.background = hexcolor;
         text.innerHTML = hexcolor;
