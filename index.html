@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      h1 {
+        align-self: center;
+      }
+    </style>
+    <title>COLORS!!!</title>
+  </head>
+  <body id="b">
+    <h1 id="color"></h1>
+  </body>
+
+  <!-- NEW COLOR!! -->
+  <script>
+    const b = document.getElementById("b");
+    const text = document.getElementById("color");
+    let a;
+    document.addEventListener("keydown", (e) => {
+        if (e.key == " " && !e.repeat) {
+            a = Math.round(Math.random()*0xffffff);
+            a = "#"+a.toString(16).padStart(6, '0');
+        }
+    })
+    tick = setInterval(() => {
+        b.style.background = a;
+        text.innerHTML = a;
+    })
+  </script>
+</html>
