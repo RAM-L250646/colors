@@ -32,10 +32,17 @@
     // each frame
     tick = setInterval(() => {
         hexcolor = "#"+intcolor.toString(16).padStart(6, '0'); // int -> hex
-      
+        red = (intcolor ^ 0xff0000) >> 4;
+        green = (intcolor ^ 0x00ff00) >> 2;
+        blue = (intcolor ^ 0x0000ff);
+
         b.style.background = hexcolor;
         text.innerHTML = hexcolor;
-        text.style.color = intcolor > 0x888888 ? "#ffffff" : "#000000"
+        if ((red + green + blue) / 3 > 127) {
+          text.style.color = "#000000";
+        } else {
+          text.style.color = "#ffffff";
+        }
     })
   </script>
   <!-- end of fire cold -->
