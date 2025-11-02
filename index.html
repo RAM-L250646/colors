@@ -64,16 +64,16 @@
     
     // each frame
     tick = setInterval(() => {
-        hexcolor = "#"+intcolor.toString(16).padStart(6, '0'); // int -> hex
-
         if (key == " " || mouse == 0) {
           intcolor = Math.round(Math.random()*0xffffff);
+          hexcolor = "#"+intcolor.toString(16).padStart(6, '0'); // int -> hex
           next = 1;
         }
 
         if (key == "s") {
           p = document.createElement("p");
           p.style.background = hexcolor;
+          p.innerHTML = hexcolor;
           p.style.color = avg(intToRGB(intcolor)) > 127 ? "#000000" : "#ffffff";
           saved.appendChild(p);
           delete(p);
