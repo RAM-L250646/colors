@@ -1,0 +1,14 @@
+h1 {
+  justify-self: center;
+  padding: 10%;
+}
+flex {
+  display: flex;
+  flex-direction: column;
+  bottom: 5%;
+  position: absolute;
+  justify-content: space-around;
+}
+flex>p {
+  padding: 10px;
+}
