@@ -18,4 +18,9 @@ p#mode {
   padding: 10px;
   position: absolute;
   border: 2px solid black;
+  background: white;
+}
+
+input {
+  justify-self: center;
 }
