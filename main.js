@@ -1,3 +1,6 @@
+// remove!
+console.log("i have received this update");
+
 // initialize variables
 const b = document.getElementById("b");
 const text = document.getElementById("color");
