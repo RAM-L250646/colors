@@ -5,6 +5,7 @@ const saved = document.getElementById("saved");
 const modetext = document.getElementById("mode");
 let intcolor, hexcolor, next;
 let key, mouse, mode;
+mode = 0; // set mode to zero
 key = " "; // random starting color
 
 // key detection
