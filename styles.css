@@ -21,6 +21,6 @@ p#mode {
   background: white;
 }
 
-input {
+#guess {
   justify-self: center;
 }
