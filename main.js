@@ -3,8 +3,9 @@ const b = document.getElementById("b");
 const text = document.getElementById("color");
 const saved = document.getElementById("saved");
 const modetext = document.getElementById("mode");
+const guessbox = document.getElementById("guess");
 let intcolor, hexcolor, next;
-let key, mouse, mode;
+let key, mouse, mode, guess;
 mode = 0; // set mode to zero
 key = " "; // random starting color
 
@@ -18,6 +19,20 @@ document.addEventListener("keydown", (e) => {
 modetext.addEventListener("mousedown", (e) => {
   mode += e.button == 0 ? 1 : 0;
   mode %= 2;
+})
+// get guesso n enter
+guessbox.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    guess = guessbox.value;
+    let m, n, o, p, q, r;
+    [m, n, o] = [guess.substring(0,2),guess.substring(2,4),guess.substring(4,6)];
+    [p, q, r] = intToRGB(intcolor);
+    [m, n, o] = [m - p, n - q, r - o];
+    [m, n, o] = [m / p, n / q, r / o];
+    [m, n, o] = [Math.abs(m), Math.abs(n), Math.abs(o)]
+    console.log(`you were ${avg([m, n, o])}% off`);
+    console.log(`correct color is ${hexcolor}`)
+  }
 })
 
 const intToRGB = (int) => {
