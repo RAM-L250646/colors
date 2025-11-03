@@ -2,16 +2,22 @@
 const b = document.getElementById("b");
 const text = document.getElementById("color");
 const saved = document.getElementById("saved");
+const modetext = document.getElementById("mode");
 let intcolor, hexcolor, next;
-let key, mouse;
+let key, mouse, mode;
 key = " "; // random starting color
 
 // key detection
 document.addEventListener("keydown", (e) => {
   if (!e.repeat) {key = e.key;}
 });
-// click detectioin
-document.addEventListener("mousedown", (e) => {mouse = e.button;});
+// click detectioin, scrapped for button interfirence
+//document.addEventListener("mousedown", (e) => {mouse = e.button;});
+// mode button
+modetext.addEventListener("mousedown", (e) => {
+  mode += e.button == 0 ? 1 : 0;
+  mode %= 2;
+})
 
 const intToRGB = (int) => {
     return [
@@ -42,6 +48,16 @@ tick = setInterval(() => {
       p.style.color = avg(intToRGB(intcolor)) > 127 ? "#000000" : "#ffffff";
       saved.appendChild(p);
       delete(p);
+    }
+
+    if (mode == 0) {
+      saved.hidden = true;
+      text.hidden = true;
+      modetext.innerHTML = guess;
+    } else if (mode == 1) {
+      saved.hidden = false;
+      text.hidden = false;
+      modetext.innerHTML = save;
     }
   
     if (next == 1) { // only if mouse or space has been pressed to avoid weird looking artifacts
