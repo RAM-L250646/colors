@@ -1,6 +1,3 @@
-// remove!
-console.log("i have received this update");
-
 // initialize variables
 const b = document.getElementById("b");
 const text = document.getElementById("color");
@@ -57,11 +54,11 @@ tick = setInterval(() => {
     if (mode == 0) {
       saved.hidden = true;
       text.hidden = true;
-      modetext.innerHTML = guess;
+      modetext.innerHTML = "guess";
     } else if (mode == 1) {
       saved.hidden = false;
       text.hidden = false;
-      modetext.innerHTML = save;
+      modetext.innerHTML = "save";
     }
   
     if (next == 1) { // only if mouse or space has been pressed to avoid weird looking artifacts
