@@ -27,6 +27,7 @@ guessbox.addEventListener("keydown", (e) => {
     let m, n, o, p, q, r;
     [m, n, o] = [guess.substring(0,2),guess.substring(2,4),guess.substring(4,6)];
     [m, n, o] = [+`0x${m}`,+`0x${n}`,+`0x${o}`]
+    console.log([m, n, o]);
     [p, q, r] = intToRGB(intcolor);
     [m, n, o] = [m - p, n - q, r - o];
     [m, n, o] = [m / p, n / q, r / o];
@@ -70,10 +71,12 @@ tick = setInterval(() => {
     if (mode == 0) {
       for (let i of saved.children) {i.hidden = true};
       text.hidden = true;
+      guessbox.hidden = false;
       modetext.innerHTML = "guess";
     } else if (mode == 1) {
       for (let i of saved.children) {i.hidden = false};
       text.hidden = false;
+      guessbox.hidden = false;
       modetext.innerHTML = "save";
     }
   
